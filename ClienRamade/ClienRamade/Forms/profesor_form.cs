@@ -78,12 +78,12 @@ namespace ClienRamade.Forms
         {
             try
             {
-                if (dataType.Equals("note"))
+                if (dataType.Equals("note") && eleviDataSet!= null)
                 {
                     noteDataSet = service.getGradesByUser(eleviDataSet.Tables[0].Rows[elevi_box.SelectedIndex]["username"].ToString());
                     dgw.DataSource = noteDataSet.Tables[0];
                 }
-                if (dataType.Equals("absente"))
+                if (dataType.Equals("absente") && eleviDataSet != null)
                 {
                     absenteDataSet = service.getAbsente(eleviDataSet.Tables[0].Rows[elevi_box.SelectedIndex]["username"].ToString());
                     dgw.DataSource = absenteDataSet.Tables[0];
@@ -154,12 +154,20 @@ namespace ClienRamade.Forms
             {
                 foreach (DataRowView item in elevi_box.SelectedItems)
                 {
-                    string a = item["username"].ToString();
-                    service.insertGrade(username,
-                                        eleviDataSet.Tables[0].Rows[elevi_box.FindString(item["nume"].ToString())]["username"].ToString(),
-                                        materii_drop.SelectedItem.ToString(),
-                                        Convert.ToUInt16(note_drop.SelectedItem),
-                                        date_pick.Value.ToString());
+                    if (nota_radio.Checked)
+                    {
+                        service.insertGrade(username,
+                                            eleviDataSet.Tables[0].Rows[elevi_box.FindString(item["nume"].ToString())]["username"].ToString(),
+                                            materii_drop.SelectedItem.ToString(),
+                                            Convert.ToUInt16(note_drop.SelectedItem),
+                                            date_pick.Value.ToString());
+                    }
+                    if (absenta_radio.Checked)
+                    {
+                        service.insertAbsenta(eleviDataSet.Tables[0].Rows[elevi_box.FindString(item["nume"].ToString())]["username"].ToString(),
+                                              materii_drop.SelectedItem.ToString(),
+                                              date_pick.Value.ToString());
+                    }
                 }
                 populateDataGridHandler();
             }
