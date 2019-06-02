@@ -30,7 +30,8 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.note_drop = new System.Windows.Forms.ComboBox();
+            this.elevi_box = new System.Windows.Forms.ListBox();
             this.add_button = new System.Windows.Forms.Button();
             this.clasa_drop = new System.Windows.Forms.ComboBox();
             this.absenta_radio = new System.Windows.Forms.RadioButton();
@@ -38,8 +39,7 @@
             this.date_pick = new System.Windows.Forms.DateTimePicker();
             this.materii_drop = new System.Windows.Forms.ComboBox();
             this.elev_dataGrid = new System.Windows.Forms.DataGridView();
-            this.elevi_box = new System.Windows.Forms.ListBox();
-            this.note_drop = new System.Windows.Forms.ComboBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.elev_dataGrid)).BeginInit();
@@ -74,15 +74,24 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             // 
-            // tabPage2
+            // note_drop
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(656, 421);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.note_drop.FormattingEnabled = true;
+            this.note_drop.Location = new System.Drawing.Point(197, 17);
+            this.note_drop.Name = "note_drop";
+            this.note_drop.Size = new System.Drawing.Size(64, 21);
+            this.note_drop.TabIndex = 20;
+            // 
+            // elevi_box
+            // 
+            this.elevi_box.FormattingEnabled = true;
+            this.elevi_box.Location = new System.Drawing.Point(24, 17);
+            this.elevi_box.MultiColumn = true;
+            this.elevi_box.Name = "elevi_box";
+            this.elevi_box.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.elevi_box.Size = new System.Drawing.Size(148, 381);
+            this.elevi_box.TabIndex = 19;
+            this.elevi_box.SelectedIndexChanged += new System.EventHandler(this.elevi_box_SelectedIndexChanged);
             // 
             // add_button
             // 
@@ -92,6 +101,7 @@
             this.add_button.TabIndex = 18;
             this.add_button.Text = "Insert";
             this.add_button.UseVisualStyleBackColor = true;
+            this.add_button.Click += new System.EventHandler(this.add_button_Click);
             // 
             // clasa_drop
             // 
@@ -150,24 +160,15 @@
             this.elev_dataGrid.StandardTab = true;
             this.elev_dataGrid.TabIndex = 11;
             // 
-            // elevi_box
+            // tabPage2
             // 
-            this.elevi_box.FormattingEnabled = true;
-            this.elevi_box.Location = new System.Drawing.Point(24, 17);
-            this.elevi_box.MultiColumn = true;
-            this.elevi_box.Name = "elevi_box";
-            this.elevi_box.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.elevi_box.Size = new System.Drawing.Size(148, 381);
-            this.elevi_box.TabIndex = 19;
-            this.elevi_box.SelectedIndexChanged += new System.EventHandler(this.elevi_box_SelectedIndexChanged);
-            // 
-            // note_drop
-            // 
-            this.note_drop.FormattingEnabled = true;
-            this.note_drop.Location = new System.Drawing.Point(197, 17);
-            this.note_drop.Name = "note_drop";
-            this.note_drop.Size = new System.Drawing.Size(64, 21);
-            this.note_drop.TabIndex = 20;
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(656, 421);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // profesor_form
             // 
