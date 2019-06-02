@@ -179,6 +179,35 @@ namespace ClienRamade.Forms
             }
         }
 
+        private void add_button_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                foreach (DataRowView item in elevi_box.SelectedItems)
+                {
+                    if (nota_radio.Checked)
+                    {
+                        service.insertGrade(username,
+                                            eleviDataSet.Tables[0].Rows[elevi_box.FindString(item["nume"].ToString())]["username"].ToString(),
+                                            materii_drop.SelectedItem.ToString(),
+                                            Convert.ToUInt16(note_drop.SelectedItem),
+                                            date_pick.Value.ToString());
+                    }
+                    if (absenta_radio.Checked)
+                    {
+                        service.insertAbsenta(eleviDataSet.Tables[0].Rows[elevi_box.FindString(item["nume"].ToString())]["username"].ToString(),
+                                              materii_drop.SelectedItem.ToString(),
+                                              date_pick.Value.ToString());
+                    }
+                }
+                populateDataGridHandler();
+            }
+            catch (NullReferenceException ex)
+            {
+                string error = ex.GetType().ToString();
+            }
+        }
+
         private void nota_radio_CheckedChanged(object sender, EventArgs e)
         {
             absenta_radio.Checked = false;

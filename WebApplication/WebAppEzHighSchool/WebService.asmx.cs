@@ -26,8 +26,6 @@ namespace WebAppEzHighSchool
 
         private SqlConnection con;
 
-        public SqlConnection Con { get => con; set => con = value; }
-
         [DllImport("kernel32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         static extern bool AllocConsole();
@@ -36,8 +34,9 @@ namespace WebAppEzHighSchool
         {
             try
             {
-                Con.ConnectionString = connectionString;
-                Con.Open();
+                con = new SqlConnection();
+                con.ConnectionString = connectionString;
+                con.Open();
                 AllocConsole();
             }
             catch (SqlException ex)
@@ -56,7 +55,7 @@ namespace WebAppEzHighSchool
         {
             try
             {
-                SqlCommand getCommand = new SqlCommand(procedureName, Con);
+                SqlCommand getCommand = new SqlCommand(procedureName, con);
                 DataSet getDataSet = new DataSet();
                 SqlDataAdapter getAdapter;
                 getCommand.CommandType = CommandType.StoredProcedure;
@@ -81,7 +80,7 @@ namespace WebAppEzHighSchool
         {
             try
             {
-                SqlCommand getCommand = new SqlCommand(procedureName, Con);
+                SqlCommand getCommand = new SqlCommand(procedureName, con);
                 getCommand.CommandType = CommandType.StoredProcedure;
                 int index = 0;
                 foreach (string parametter in parametters)

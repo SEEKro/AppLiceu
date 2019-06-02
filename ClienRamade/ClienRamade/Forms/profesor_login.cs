@@ -29,7 +29,7 @@ namespace ClienRamade.Forms
 
         private void openprofesor(object obj)
         {
-            Application.Run(new Forms.profesor_form(textBox1.Text));
+            Application.Run(new Forms.profesor_form(textBox1.Text.ToString()));
         }
 
         private void profesor_login_Load(object sender, EventArgs e)
