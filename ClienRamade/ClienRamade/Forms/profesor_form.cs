@@ -208,6 +208,11 @@ namespace ClienRamade.Forms
             }
         }
 
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void nota_radio_CheckedChanged(object sender, EventArgs e)
         {
             absenta_radio.Checked = false;

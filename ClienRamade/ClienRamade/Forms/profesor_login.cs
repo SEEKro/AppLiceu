@@ -41,10 +41,10 @@ namespace ClienRamade.Forms
         {
             if (textBox2.Text == service.getPassword("profesor", textBox1.Text).Tables[0].Rows[0][0].ToString())
             {
-                this.Close();
                 t = new Thread(openprofesor);
                 t.SetApartmentState(ApartmentState.STA);
                 t.Start();
+                this.Hide();
             }
             else
             {
