@@ -13,7 +13,7 @@ namespace ClienRamade.Forms
     public partial class profesor_form : Form
     {
         private ClienRamade.ServiceReference1.WebServiceSoapClient service;
-        private DataSet materiiDataSet, claseDataSet, eleviDataSet, noteDataSet, absenteDataSet;
+        private DataSet materiiDataSet, claseDataSet, eleviDataSet, noteDataSet;
         private string username;
 
         //Configs
@@ -64,7 +64,7 @@ namespace ClienRamade.Forms
         {
             foreach(DataRow dr in ds.Tables[0].Rows)
             {
-                cb.Items.Add((string)dr[fieldName].ToString());
+                cb.Items.Add(dr[fieldName].ToString());
             }
         }
 
@@ -74,22 +74,14 @@ namespace ClienRamade.Forms
             lb.DisplayMember = fieldName;
         }
 
-        private void populateGridView(DataGridView dgw, string dataType)
+        private void populateGridView(DataGridView dgw)
         {
             try
             {
-                if (dataType.Equals("note"))
-                {
-                    noteDataSet = service.getGradesByUser(eleviDataSet.Tables[0].Rows[elevi_box.SelectedIndex]["username"].ToString());
-                    dgw.DataSource = noteDataSet.Tables[0];
-                }
-                if (dataType.Equals("absente"))
-                {
-                    absenteDataSet = service.getAbsente(eleviDataSet.Tables[0].Rows[elevi_box.SelectedIndex]["username"].ToString());
-                    dgw.DataSource = absenteDataSet.Tables[0];
-                }
+                noteDataSet = service.getGradesByUser(eleviDataSet.Tables[0].Rows[elevi_box.SelectedIndex]["username"].ToString());
+                dgw.DataSource = noteDataSet.Tables[0];
             }
-            catch(Exception ex)
+            catch(IndexOutOfRangeException ex)
             {
                 string err = ex.GetType().ToString();
             }
@@ -109,12 +101,11 @@ namespace ClienRamade.Forms
             if (nota_radio.Checked)
             {
                 configureDataGrid("note", elev_dataGrid);
-                populateGridView(elev_dataGrid, "note");
+                populateGridView(elev_dataGrid);
             }
             if (absenta_radio.Checked)
             {
                 configureDataGrid("absente", elev_dataGrid);
-                populateGridView(elev_dataGrid, "absente");
             }
         }
 
@@ -148,39 +139,26 @@ namespace ClienRamade.Forms
             populateDataGridHandler();
         }
 
-        private void add_button_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                foreach (DataRowView item in elevi_box.SelectedItems)
-                {
-                    string a = item["username"].ToString();
-                    service.insertGrade(username,
-                                        eleviDataSet.Tables[0].Rows[elevi_box.FindString(item["nume"].ToString())]["username"].ToString(),
-                                        materii_drop.SelectedItem.ToString(),
-                                        Convert.ToUInt16(note_drop.SelectedItem),
-                                        date_pick.Value.ToString());
-                }
-                populateDataGridHandler();
-            }
-            catch (NullReferenceException ex)
-            {
-                string error = ex.GetType().ToString();
-            }
-        }
-
         private void nota_radio_CheckedChanged(object sender, EventArgs e)
         {
             absenta_radio.Checked = false;
-            note_drop.Enabled = true;
-            populateDataGridHandler();
+            note_drop.Enabled = false;
+        }
+
+        private void Date_pick_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TabPage1_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void absenta_radio_CheckedChanged(object sender, EventArgs e)
         {
             nota_radio.Checked = false;
-            note_drop.Enabled = false;
-            populateDataGridHandler();
+            note_drop.Enabled = true;
         }
 
         private void profesor_form_Load(object sender, EventArgs e)
@@ -194,7 +172,6 @@ namespace ClienRamade.Forms
             populateListBox(elevi_box,
                             eleviDataSet,
                             "nume");
-            populateDataGridHandler();
         }
     }
 }

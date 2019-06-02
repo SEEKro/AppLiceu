@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClienRamade.Forms;
 
 namespace ClienRamade
 {
@@ -23,7 +24,7 @@ namespace ClienRamade
 
         private void openadmin(object obj)
         {
-            //Application.Run(new admin_log());
+            Application.Run(new Admin_login());
         }
         private void openprofesor(object obj)
         {

@@ -53,16 +53,28 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin.designer.cs">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin_login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin_login.designer.cs">
+      <DependentUpon>Admin_login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\elev_form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\elev_form.Designer.cs">
+    <Compile Include="Forms\elev_form.designer.cs">
       <DependentUpon>elev_form.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\elev_login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\elev_login.Designer.cs">
+    <Compile Include="Forms\elev_login.designer.cs">
       <DependentUpon>elev_login.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainScreen.cs">
@@ -74,17 +86,23 @@
     <Compile Include="Forms\profesor_form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\profesor_form.Designer.cs">
+    <Compile Include="Forms\profesor_form.designer.cs">
       <DependentUpon>profesor_form.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\profesor_login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\profesor_login.Designer.cs">
+    <Compile Include="Forms\profesor_login.designer.cs">
       <DependentUpon>profesor_login.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Admin.resx">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin_login.resx">
+      <DependentUpon>Admin_login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\elev_form.resx">
       <DependentUpon>elev_form.cs</DependentUpon>
     </EmbeddedResource>
