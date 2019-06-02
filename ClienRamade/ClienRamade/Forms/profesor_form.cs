@@ -81,12 +81,14 @@ namespace ClienRamade.Forms
                 if (dataType.Equals("note") && eleviDataSet!= null)
                 {
                     noteDataSet = service.getGradesByUser(eleviDataSet.Tables[0].Rows[elevi_box.SelectedIndex]["username"].ToString());
-                    dgw.DataSource = noteDataSet.Tables[0];
+                    if(noteDataSet != null)
+                        dgw.DataSource = noteDataSet.Tables[0];
                 }
                 if (dataType.Equals("absente") && eleviDataSet != null)
                 {
                     absenteDataSet = service.getAbsente(eleviDataSet.Tables[0].Rows[elevi_box.SelectedIndex]["username"].ToString());
-                    dgw.DataSource = absenteDataSet.Tables[0];
+                    if(absenteDataSet != null)
+                        dgw.DataSource = absenteDataSet.Tables[0];
                 }
             }
             catch(Exception ex)

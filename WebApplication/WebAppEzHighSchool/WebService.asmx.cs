@@ -24,7 +24,9 @@ namespace WebAppEzHighSchool
                                                   AttachDbFilename=|DataDirectory|\Database1.mdf;
                                                   Integrated Security=True";
 
-        private SqlConnection con = new SqlConnection();
+        private SqlConnection con;
+
+        public SqlConnection Con { get => con; set => con = value; }
 
         [DllImport("kernel32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
@@ -34,8 +36,8 @@ namespace WebAppEzHighSchool
         {
             try
             {
-                con.ConnectionString = connectionString;
-                con.Open();
+                Con.ConnectionString = connectionString;
+                Con.Open();
                 AllocConsole();
             }
             catch (SqlException ex)
@@ -54,7 +56,7 @@ namespace WebAppEzHighSchool
         {
             try
             {
-                SqlCommand getCommand = new SqlCommand(procedureName, con);
+                SqlCommand getCommand = new SqlCommand(procedureName, Con);
                 DataSet getDataSet = new DataSet();
                 SqlDataAdapter getAdapter;
                 getCommand.CommandType = CommandType.StoredProcedure;
@@ -79,7 +81,7 @@ namespace WebAppEzHighSchool
         {
             try
             {
-                SqlCommand getCommand = new SqlCommand(procedureName, con);
+                SqlCommand getCommand = new SqlCommand(procedureName, Con);
                 getCommand.CommandType = CommandType.StoredProcedure;
                 int index = 0;
                 foreach (string parametter in parametters)

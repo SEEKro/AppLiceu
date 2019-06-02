@@ -16,7 +16,8 @@ namespace ClienRamade
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Forms.profesor_form("dob"));
+            //Application.Run(new Forms.profesor_form("dob"));
+            Application.Run(new Form1());
         }
     }
 }
