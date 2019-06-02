@@ -223,5 +223,21 @@ namespace WebAppEzHighSchool
                                      new List<string>() { "@user", "@password", "@nume" },
                                      new List<Object>() { user_profesor, password, nume });
         }
+
+        [WebMethod]
+        public int deleteProfesor(string user_profesor)
+        {
+            return makePostRequest("DeleteProfesor",
+                                     new List<string>() { "@username" },
+                                     new List<Object>() { user_profesor });
+        }
+
+        [WebMethod]
+        public int deleteElev(string user_elev)
+        {
+            return makePostRequest("DeleteElev",
+                                     new List<string>() { "@username" },
+                                     new List<Object>() { user_elev });
+        }
     }
 }
