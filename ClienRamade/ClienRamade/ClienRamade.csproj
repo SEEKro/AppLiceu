@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CDAB2B3C-D358-49B2-A65D-0F7C10C83B93}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ClienRamade</RootNamespace>
+    <AssemblyName>ClienRamade</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Connected Services\ServiceReference1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\elev_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\elev_form.Designer.cs">
+      <DependentUpon>elev_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\elev_login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\elev_login.Designer.cs">
+      <DependentUpon>elev_login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainScreen.Designer.cs">
+      <DependentUpon>MainScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\profesor_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\profesor_form.Designer.cs">
+      <DependentUpon>profesor_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\profesor_login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\profesor_login.Designer.cs">
+      <DependentUpon>profesor_login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\elev_form.resx">
+      <DependentUpon>elev_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\elev_login.resx">
+      <DependentUpon>elev_login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainScreen.resx">
+      <DependentUpon>MainScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\profesor_form.resx">
+      <DependentUpon>profesor_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\profesor_login.resx">
+      <DependentUpon>profesor_login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Connected Services\ServiceReference1\ClienRamade.ServiceReference1.Withparametter1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\ClienRamade.ServiceReference1.Withparametters1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\WebService.wsdl" />
+    <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReference1\WebService.disco" />
+    <None Include="Connected Services\ServiceReference1\configuration91.svcinfo" />
+    <None Include="Connected Services\ServiceReference1\configuration.svcinfo" />
+    <None Include="Connected Services\ServiceReference1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Resources\analiza.pmg.png" />
+    <Content Include="Resources\analiza.pmg1.png" />
+    <Content Include="Resources\Analytics-icon.png" />
+    <Content Include="Resources\Analytics-icon1.png" />
+    <Content Include="Resources\Analytics-icon2.png" />
+    <Content Include="Resources\Boss-2-icon.png" />
+    <Content Include="Resources\Boss-2-icon1.png" />
+    <Content Include="Resources\Boss-2-icon2.png" />
+    <Content Include="Resources\Boss-5-icon.png" />
+    <Content Include="Resources\Boss-5-icon1.png" />
+    <Content Include="Resources\iconfinder_Boss-2_379332.png" />
+    <Content Include="Resources\Owl-Book-512.png" />
+    <Content Include="Resources\Owl-Book-5121.png" />
+    <Content Include="Resources\Owl-Book-5122.png" />
+    <Content Include="Resources\Owl-Book-5123.png" />
+    <Content Include="Resources\Owl-Book-5124.png" />
+    <Content Include="Resources\Pingu.png" />
+    <Content Include="Resources\Road-Worker-1-icon.png" />
+    <Content Include="Resources\Road-Worker-1-icon1.png" />
+    <Content Include="Resources\Student-1-512.png" />
+    <Content Include="Resources\Untitled.png" />
+    <Content Include="Resources\Untitled1.png" />
+    <Content Include="Resources\Untitled2.png" />
+    <Content Include="Resources\Webalys-Kameleon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ServiceReference1\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
